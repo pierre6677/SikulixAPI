@@ -199,6 +199,40 @@
         </plugins>
       </build>
     </profile>
+    <!-- complete-jar Mac only-->
+    <profile>
+      <id>complete-mac-jar</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <version>3.1.1</version>
+            <configuration>
+              <archive>
+                <manifest>
+                  <mainClass>org.sikuli.script.Sikulix</mainClass>
+                </manifest>
+              </archive>
+              <descriptors>
+                <descriptor>makeapi-mac.xml</descriptor>
+              </descriptors>
+            </configuration>
+            <executions>
+              <execution>
+                <id>make-assembly</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>single</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
     <!-- sign -->
     <profile>
       <id>sign</id>
